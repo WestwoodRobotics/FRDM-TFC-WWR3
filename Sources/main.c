@@ -24,11 +24,9 @@ int main(void)
 	uint32_t t=0;
 	float linePos = 0.0;
 	//uint32_t driveState = 0;  // set up different modes for driving
-	double motorSpeed = 0.5;
+	double motorSpeed = 1.0;
 	
-	uint16_t pTimer, pNext = 0;  // timers for programmed driving in mode 2
-	uint16_t iCmd = 0;         // command number to load
-	uint8_t setAction = 0;  // flag to act or not
+	
 	
 	struct pDrive {
 		double steerPot;
@@ -38,17 +36,19 @@ int main(void)
 	} driveProgram[] = {
 			{0.0, 1.0, 1.0, 2000},
 			{0.25, .5, .5, 500},
-			{0.0, 1.0, 1.0, 1000},
+			{0.0, 1.0, 1.0, 2000},
 			{-0.25, -.5, -.5,500},
+			{0.0, .5, .5, 1500},
 			{0.0, 0.0, 0.0, 0}      // stop for a while
 			}		
 			;
 	
-	double dSteer, dLM, dRM = 0.0;   // set up control parameters 
+	double revRt = 1.0;   // left motor is opposite signal from left
+	double revLt = -1.0;    // 
 		
 		TFC_Init();  // Initialize TFC drivers
 		
-				
+for(;;) {		
 		/* wait for button 0 to be pressed before anything starts
 			 * 
 			 */
@@ -58,9 +58,12 @@ int main(void)
 			
 			go = 1;
 			firstPass = 1;
-	
+			uint16_t pTimer, pNext = 0;  // timers for programmed driving in mode 2
+			uint16_t iCmd = 0;         // command number to load
+			uint8_t setAction = 0;  // flag to act or not
+			double dSteer, dLM, dRM = 0.0;   // set up control parameters 
 		
-	while(go) {	   
+	while(go) {	  
 	   
 	   	//TFC_Task must be called in your main loop.  This keeps certain processing happy (I.E. Serial port queue check)
 	   				TFC_Task();
@@ -138,8 +141,8 @@ int main(void)
 	   					if (TFC_Ticker[3] > pNext)
 	   					{ // set parameter for driving
 	   						dSteer = driveProgram[iCmd].steerPot+TFC_ReadPot(0);  // pot 0 is considered "centered" value
-	   						dLM = driveProgram[iCmd].leftMotor*motorSpeed;			// relative to set motor speed
-	   						dRM = driveProgram[iCmd].rtMotor*motorSpeed;
+	   						dLM = driveProgram[iCmd].leftMotor*motorSpeed*revLt;			// relative to set motor speed
+	   						dRM = driveProgram[iCmd].rtMotor*motorSpeed*revRt;
 	   						pNext = driveProgram[iCmd].pDuration;
 	   						// reset timer
 	   						TFC_Ticker[3] = 0;
@@ -185,7 +188,6 @@ int main(void)
 	   					
 	   				}
 	}  // end while go loop
-
-	
+} // end for
 	return 0;
 }
