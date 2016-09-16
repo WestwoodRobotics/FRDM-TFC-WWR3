@@ -47,20 +47,6 @@ OBJS += \
 ./Sources/TFC/TFC_UART.o \
 ./Sources/TFC/TFC_arm_cm0.o \
 
-C_DEPS += \
-./Sources/TFC/TFC.d \
-./Sources/TFC/TFC_ADC.d \
-./Sources/TFC/TFC_ARM_SysTick.d \
-./Sources/TFC/TFC_BoardSupport.d \
-./Sources/TFC/TFC_CrystalClock.d \
-./Sources/TFC/TFC_LineScanCamera.d \
-./Sources/TFC/TFC_Motor.d \
-./Sources/TFC/TFC_Queue.d \
-./Sources/TFC/TFC_Servo.d \
-./Sources/TFC/TFC_Terminal.d \
-./Sources/TFC/TFC_UART.d \
-./Sources/TFC/TFC_arm_cm0.d \
-
 OBJS_QUOTED += \
 "./Sources/TFC/TFC.o" \
 "./Sources/TFC/TFC_ADC.o" \
@@ -75,19 +61,19 @@ OBJS_QUOTED += \
 "./Sources/TFC/TFC_UART.o" \
 "./Sources/TFC/TFC_arm_cm0.o" \
 
-C_DEPS_QUOTED += \
-"./Sources/TFC/TFC.d" \
-"./Sources/TFC/TFC_ADC.d" \
-"./Sources/TFC/TFC_ARM_SysTick.d" \
-"./Sources/TFC/TFC_BoardSupport.d" \
-"./Sources/TFC/TFC_CrystalClock.d" \
-"./Sources/TFC/TFC_LineScanCamera.d" \
-"./Sources/TFC/TFC_Motor.d" \
-"./Sources/TFC/TFC_Queue.d" \
-"./Sources/TFC/TFC_Servo.d" \
-"./Sources/TFC/TFC_Terminal.d" \
-"./Sources/TFC/TFC_UART.d" \
-"./Sources/TFC/TFC_arm_cm0.d" \
+C_DEPS += \
+./Sources/TFC/TFC.d \
+./Sources/TFC/TFC_ADC.d \
+./Sources/TFC/TFC_ARM_SysTick.d \
+./Sources/TFC/TFC_BoardSupport.d \
+./Sources/TFC/TFC_CrystalClock.d \
+./Sources/TFC/TFC_LineScanCamera.d \
+./Sources/TFC/TFC_Motor.d \
+./Sources/TFC/TFC_Queue.d \
+./Sources/TFC/TFC_Servo.d \
+./Sources/TFC/TFC_Terminal.d \
+./Sources/TFC/TFC_UART.d \
+./Sources/TFC/TFC_arm_cm0.d \
 
 OBJS_OS_FORMAT += \
 ./Sources/TFC/TFC.o \
@@ -102,6 +88,20 @@ OBJS_OS_FORMAT += \
 ./Sources/TFC/TFC_Terminal.o \
 ./Sources/TFC/TFC_UART.o \
 ./Sources/TFC/TFC_arm_cm0.o \
+
+C_DEPS_QUOTED += \
+"./Sources/TFC/TFC.d" \
+"./Sources/TFC/TFC_ADC.d" \
+"./Sources/TFC/TFC_ARM_SysTick.d" \
+"./Sources/TFC/TFC_BoardSupport.d" \
+"./Sources/TFC/TFC_CrystalClock.d" \
+"./Sources/TFC/TFC_LineScanCamera.d" \
+"./Sources/TFC/TFC_Motor.d" \
+"./Sources/TFC/TFC_Queue.d" \
+"./Sources/TFC/TFC_Servo.d" \
+"./Sources/TFC/TFC_Terminal.d" \
+"./Sources/TFC/TFC_UART.d" \
+"./Sources/TFC/TFC_arm_cm0.d" \
 
 
 # Each subdirectory must supply rules for building sources it contributes

@@ -20,25 +20,25 @@ OBJS += \
 ./Sources/main.o \
 ./Sources/sa_mtb.o \
 
-C_DEPS += \
-./Sources/locate_line.d \
-./Sources/main.d \
-./Sources/sa_mtb.d \
-
 OBJS_QUOTED += \
 "./Sources/locate_line.o" \
 "./Sources/main.o" \
 "./Sources/sa_mtb.o" \
 
-C_DEPS_QUOTED += \
-"./Sources/locate_line.d" \
-"./Sources/main.d" \
-"./Sources/sa_mtb.d" \
+C_DEPS += \
+./Sources/locate_line.d \
+./Sources/main.d \
+./Sources/sa_mtb.d \
 
 OBJS_OS_FORMAT += \
 ./Sources/locate_line.o \
 ./Sources/main.o \
 ./Sources/sa_mtb.o \
+
+C_DEPS_QUOTED += \
+"./Sources/locate_line.d" \
+"./Sources/main.d" \
+"./Sources/sa_mtb.d" \
 
 
 # Each subdirectory must supply rules for building sources it contributes

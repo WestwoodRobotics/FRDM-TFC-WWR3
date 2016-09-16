@@ -17,7 +17,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="FRDM-TFC-WWR3" buildArtefactType="org.eclipse.cdt.cross.arm.gnu.buildArtefactType.application" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.cross.arm.gnu.buildArtefactType.application" buildReferences="true" buildReferencingConfigurations="false" description="" errorParsers="org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser;com.freescale.core.ide.cdt.errorParsers.GCCErrorParser;org.eclipse.cdt.core.CWDLocator;" id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.debug.1948638824" isPrebuildInvalidatingBuild="false" name="FLASH" parent="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.debug" produceBuildErrorsWithMissingReferences="true">
+				<configuration artifactName="FRDM-TFC-WWR3" buildArtefactType="org.eclipse.cdt.cross.arm.gnu.buildArtefactType.application" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.cross.arm.gnu.buildArtefactType.application" buildReferences="true" buildReferencingConfigurations="false" description="" errorParsers="org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser;com.freescale.core.ide.cdt.errorParsers.GCCErrorParser;org.eclipse.cdt.core.CWDLocator;" id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.debug.1948638824" isPrebuildInvalidatingBuild="false" isVersionInfoProjSpecific="false" name="FLASH" parent="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.debug" postannouncebuildStep="" postbuildStep="&quot;C:/Freescale/CW MCU v10.7/Cross_Tools/arm-none-eabi-gcc-4_7_3/bin/arm-none-eabi-objcopy&quot; -O &quot;${ProjDirPath}/Debug/${ProjName}.${BuildArtifactFileExt}&quot; ${ProjName}.s19" produceBuildErrorsWithMissingReferences="true">
 					<folderInfo id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.debug.1948638824." name="/" resourcePath="">
 						<toolChain errorParsers="" id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.toolchain.debug.452764191" name="ARM Ltd Windows GCC (G++ Lite)" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.toolchain.debug">
 							<option id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.option.debugging.level.1193860623" name="Debug level" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.option.debugging.level" value="org.eclipse.cdt.cross.arm.gnu.base.option.debugging.level.max" valueType="enumerated"/>
@@ -25,7 +25,8 @@
 							<option id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.toolchain.sharedoption.librarian.201937254" name="Enable automatic library configurations" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.toolchain.sharedoption.librarian" value="true" valueType="boolean"/>
 							<option id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.toolchain.sharedoption.model.2011857514" name="Model" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.toolchain.sharedoption.model" value="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.toolchain.sharedoption.model.ewl_c_hosted" valueType="enumerated"/>
 							<option id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.option.debugging.other.124335189" name="Other debugging flags" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.option.debugging.other" value="-gstrict-dwarf" valueType="string"/>
-							<option id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.toolchain.sharedoption.print.436173996" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.toolchain.sharedoption.print" value="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.toolchain.sharedoption.print.int_FP" valueType="enumerated"/>
+							<option id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.toolchain.sharedoption.print.436173996" name="Print formats" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.toolchain.sharedoption.print" value="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.toolchain.sharedoption.print.int_FP" valueType="enumerated"/>
+							<option id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.option.addtools.createflash.1464644333" name="Create Flash Image" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.option.addtools.createflash" value="true" valueType="boolean"/>
 							<targetPlatform id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.platform.debug.529770152" isAbstract="false" name="Windows Platform" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.platform.debug"/>
 							<builder buildPath="${ProjDirPath}/FLASH" errorParsers="org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.CWDLocator" id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.builder.debug.1306186915" keepEnvironmentInBuildfile="false" name="ARM Ltd Windows GNU Make builder" parallelBuildOn="true" parallelBuildWorkspaceOn="true" parallelizationNumber="optimal" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.builder.debug"/>
 							<tool errorParsers="com.freescale.core.ide.cdt.errorParsers.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser" id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.assembler.debug.581427888" name="ARM Ltd Windows GCC Assembler" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.assembler.debug">
@@ -58,6 +59,26 @@
 									<listOptionValue builtIn="false" value="&quot;${MCUToolsBaseDir}/ARM_GCC_Support/ewl/lib/armv6-m&quot;"/>
 								</option>
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.link.option.scriptfile.1188424054" name="Script file (-T)" superClass="org.eclipse.cdt.cross.arm.gnu.c.link.option.scriptfile" value="${ProjDirPath}/Project_Settings/Linker_Files/MKL25Z128_flash.ld" valueType="string"/>
+								<option id="org.eclipse.cdt.cross.arm.gnu.c.link.option.linkorder.1538968655" name="Link Order" superClass="org.eclipse.cdt.cross.arm.gnu.c.link.option.linkorder" valueType="stringList">
+									<listOptionValue builtIn="false" value="Project_Settings/Startup_Code/__arm_end.c"/>
+									<listOptionValue builtIn="false" value="Project_Settings/Startup_Code/__arm_start.c"/>
+									<listOptionValue builtIn="false" value="Project_Settings/Startup_Code/kinetis_sysinit.c"/>
+									<listOptionValue builtIn="false" value="Sources/TFC/TFC.c"/>
+									<listOptionValue builtIn="false" value="Sources/TFC/TFC_ADC.c"/>
+									<listOptionValue builtIn="false" value="Sources/TFC/TFC_ARM_SysTick.c"/>
+									<listOptionValue builtIn="false" value="Sources/TFC/TFC_BoardSupport.c"/>
+									<listOptionValue builtIn="false" value="Sources/TFC/TFC_CrystalClock.c"/>
+									<listOptionValue builtIn="false" value="Sources/TFC/TFC_LineScanCamera.c"/>
+									<listOptionValue builtIn="false" value="Sources/TFC/TFC_Motor.c"/>
+									<listOptionValue builtIn="false" value="Sources/TFC/TFC_Queue.c"/>
+									<listOptionValue builtIn="false" value="Sources/TFC/TFC_Servo.c"/>
+									<listOptionValue builtIn="false" value="Sources/TFC/TFC_Terminal.c"/>
+									<listOptionValue builtIn="false" value="Sources/TFC/TFC_UART.c"/>
+									<listOptionValue builtIn="false" value="Sources/TFC/TFC_arm_cm0.c"/>
+									<listOptionValue builtIn="false" value="Sources/locate_line.c"/>
+									<listOptionValue builtIn="false" value="Sources/main.c"/>
+									<listOptionValue builtIn="false" value="Sources/sa_mtb.c"/>
+								</option>
 								<inputType id="org.eclipse.cdt.cross.arm.gnu.c.linker.input.1095065619" superClass="org.eclipse.cdt.cross.arm.gnu.c.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -83,7 +104,9 @@
 									<listOptionValue builtIn="false" value="&quot;${MCUToolsBaseDir}/ARM_GCC_Support/ewl/EWL_Runtime/include&quot;"/>
 								</option>
 							</tool>
-							<tool id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.createflash.debug.552078965" name="ARM Ltd Windows GNU Create Flash Image" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.createflash.debug"/>
+							<tool id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.createflash.debug.552078965" name="ARM Ltd Windows GNU Create Flash Image" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.createflash.debug">
+								<option id="org.eclipse.cdt.cross.arm.gnu.createflash.out.choice.668553258" name="Output file format (-O)" superClass="org.eclipse.cdt.cross.arm.gnu.createflash.out.choice" value="org.eclipse.cdt.cross.arm.gnu.createflash.out.choice.srec" valueType="enumerated"/>
+							</tool>
 							<tool id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.createlisting.debug.67814796" name="ARM Ltd Windows GNU Create Listing" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.createlisting.debug"/>
 							<tool id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.printsize.debug.277779232" name="ARM Ltd Windows GNU Print Size" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.printsize.debug"/>
 						</toolChain>

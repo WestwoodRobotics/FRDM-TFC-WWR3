@@ -20,25 +20,25 @@ OBJS += \
 ./Project_Settings/Startup_Code/__arm_start.o \
 ./Project_Settings/Startup_Code/kinetis_sysinit.o \
 
-C_DEPS += \
-./Project_Settings/Startup_Code/__arm_end.d \
-./Project_Settings/Startup_Code/__arm_start.d \
-./Project_Settings/Startup_Code/kinetis_sysinit.d \
-
 OBJS_QUOTED += \
 "./Project_Settings/Startup_Code/__arm_end.o" \
 "./Project_Settings/Startup_Code/__arm_start.o" \
 "./Project_Settings/Startup_Code/kinetis_sysinit.o" \
 
-C_DEPS_QUOTED += \
-"./Project_Settings/Startup_Code/__arm_end.d" \
-"./Project_Settings/Startup_Code/__arm_start.d" \
-"./Project_Settings/Startup_Code/kinetis_sysinit.d" \
+C_DEPS += \
+./Project_Settings/Startup_Code/__arm_end.d \
+./Project_Settings/Startup_Code/__arm_start.d \
+./Project_Settings/Startup_Code/kinetis_sysinit.d \
 
 OBJS_OS_FORMAT += \
 ./Project_Settings/Startup_Code/__arm_end.o \
 ./Project_Settings/Startup_Code/__arm_start.o \
 ./Project_Settings/Startup_Code/kinetis_sysinit.o \
+
+C_DEPS_QUOTED += \
+"./Project_Settings/Startup_Code/__arm_end.d" \
+"./Project_Settings/Startup_Code/__arm_start.d" \
+"./Project_Settings/Startup_Code/kinetis_sysinit.d" \
 
 
 # Each subdirectory must supply rules for building sources it contributes

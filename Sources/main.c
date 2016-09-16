@@ -34,17 +34,18 @@ int main(void)
 		double rtMotor;
 		uint16_t pDuration;
 	} driveProgram[] = {
-			{0.0, 1.0, 1.0, 2000},
-			{0.25, .5, .5, 500},
-			{0.0, 1.0, 1.0, 2000},
-			{-0.25, -.5, -.5,500},
-			{0.0, .5, .5, 1500},
+			{0.0, 1.0, 1.0, 1500},
+			{0.40, .5, .5, 1000},
+			{0.0, 1.0, 1.0, 1500},
+			{0.40, .5, .5,1000},
+			{0.0, .8, .8, 1500},
 			{0.0, 0.0, 0.0, 0}      // stop for a while
 			}		
 			;
 	
 	double revRt = 1.0;   // left motor is opposite signal from left
-	double revLt = -1.0;    // 
+	double revLt = -1.0;  //
+	double setSpeed = 0.0;
 		
 		TFC_Init();  // Initialize TFC drivers
 		
@@ -62,6 +63,7 @@ for(;;) {
 			uint16_t iCmd = 0;         // command number to load
 			uint8_t setAction = 0;  // flag to act or not
 			double dSteer, dLM, dRM = 0.0;   // set up control parameters 
+			setSpeed = motorSpeed * (TFC_ReadPot(1)+1.0/2);
 		
 	while(go) {	  
 	   
@@ -141,8 +143,8 @@ for(;;) {
 	   					if (TFC_Ticker[3] > pNext)
 	   					{ // set parameter for driving
 	   						dSteer = driveProgram[iCmd].steerPot+TFC_ReadPot(0);  // pot 0 is considered "centered" value
-	   						dLM = driveProgram[iCmd].leftMotor*motorSpeed*revLt;			// relative to set motor speed
-	   						dRM = driveProgram[iCmd].rtMotor*motorSpeed*revRt;
+	   						dLM = driveProgram[iCmd].leftMotor*setSpeed*revLt;			// relative to set motor speed
+	   						dRM = driveProgram[iCmd].rtMotor*setSpeed*revRt;
 	   						pNext = driveProgram[iCmd].pDuration;
 	   						// reset timer
 	   						TFC_Ticker[3] = 0;
