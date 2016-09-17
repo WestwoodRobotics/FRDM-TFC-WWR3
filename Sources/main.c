@@ -21,6 +21,11 @@ int main(void)
 	uint16_t go = 0;    // controls main look
 	uint16_t firstPass = 1; // controls initialization of main loop
 	
+	/*
+	 * Set up parameters to start on button A push or DIP 4 on/off cycle
+	 */
+	volatile uint8_t activate = 0, dipVal = 0;
+	
 	uint32_t t=0;
 	float linePos = 0.0;
 	//uint32_t driveState = 0;  // set up different modes for driving
@@ -34,11 +39,13 @@ int main(void)
 		double rtMotor;
 		uint16_t pDuration;
 	} driveProgram[] = {
-			{0.0, 1.0, 1.0, 1500},
-			{0.40, .5, .5, 1000},
-			{0.0, 1.0, 1.0, 1500},
+			{0.0, 1.0, 1.0, 1000},
+			{0.40, .7, .7, 1000},
+			{0.0, 1.0, 1.0, 800},
 			{0.40, .5, .5,1000},
-			{0.0, .8, .8, 1500},
+			{0.0, .8, .8, 1000},
+			{0.40, .5, .5,1000},
+			{0.0, .8, .8, 800},
 			{0.0, 0.0, 0.0, 0}      // stop for a while
 			}		
 			;
@@ -46,16 +53,35 @@ int main(void)
 	double revRt = 1.0;   // left motor is opposite signal from left
 	double revLt = -1.0;  //
 	double setSpeed = 0.0;
+	uint16_t junk = 0;
 		
-		TFC_Init();  // Initialize TFC drivers
+	TFC_Init();  // Initialize TFC drivers
 		
 for(;;) {		
 		/* wait for button 0 to be pressed before anything starts
 			 * 
 			 */
-			while(TFC_PUSH_BUTTON_0_PRESSED == 0) 
+			while (activate < 2) 
 			{
+				if (TFC_PUSH_BUTTON_0_PRESSED)
+					activate = 2;		// go on button a push
+				
+				for (junk=0;junk<20;junk++) {
+					dipVal = TFC_GetDIP_Switch()&0x08;  // debounce switch
+				}
+				if (DEBUG) TERMINAL_PRINTF("dip=%d  ", dipVal);
+				
+				if (dipVal == 8) {		// first step - switch to on
+					activate = 1;
+					}
+					else
+					{	
+					if ((dipVal == 0) && (activate ==  1) ) // after on/ if goes off, start
+						activate = 2;
+					}
 			}
+			
+			activate = 0; // reset for next pass
 			
 			go = 1;
 			firstPass = 1;
@@ -138,7 +164,7 @@ for(;;) {
 	   					
 	   					if (firstPass) TFC_HBRIDGE_ENABLE;
 	   					
-	   					TERMINAL_PRINTF("MODE 2 %d %d %d \r\n", TFC_Ticker[3], pNext, setAction);
+	   					//if (DEBUG) TERMINAL_PRINTF("MODE 2 %d %d %d \r\n", TFC_Ticker[3], pNext, setAction);
 	   					
 	   					if (TFC_Ticker[3] > pNext)
 	   					{ // set parameter for driving
@@ -183,7 +209,7 @@ for(;;) {
 	   						// find line center every 100 ms if ready
 	   						linePos = locate_line();
 	   					
-	   					if (DEBUG) TERMINAL_PRINTF("c: %4.2f \n\r",linePos);
+	   					//if (DEBUG) TERMINAL_PRINTF("c: %4.2f \n\r",linePos);
 	   					}
 	   					
 	   					break;

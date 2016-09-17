@@ -73,7 +73,6 @@ FRDM-TFC-WWR3.elf: $(OBJS) $(USER_OBJS) ../Project_Settings/Linker_Files/MKL25Z1
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc"  $(USER_OBJS_QUOTED) $(LIBS_QUOTED) @"FRDM-TFC-WWR3.args" -o"FRDM-TFC-WWR3.elf"
 	@echo 'Finished building target: $@'
 	@echo ' '
-	$(MAKE) --no-print-directory post-build
 
 FRDM-TFC-WWR3.hex: FRDM-TFC-WWR3.elf
 	@echo 'Executing target #20 $@'
@@ -87,14 +86,10 @@ clean:
 	-$(RM) $(S_DEPS_QUOTED) $(SECONDARY_FLASH_QUOTED) "./*/*/*.o" "./*/*.o"  $(S_UPPER_DEPS_QUOTED) $(ASM_DEPS_QUOTED) $(ASM_UPPER_DEPS_QUOTED) $(SX_DEPS_QUOTED) $(EXECUTABLES_QUOTED) "./*/*/*.d" "./*/*.d"  $(ProjDirPath)/FLASH/FRDM-TFC-WWR3.elf
 	-@echo ' '
 
-post-build:
-	-"C:/Freescale/CW MCU v10.7/Cross_Tools/arm-none-eabi-gcc-4_7_3/bin/arm-none-eabi-objcopy" -O "C:/Users/user/workspace/FRDM-TFC-WWR3/Debug/FRDM-TFC-WWR3.elf" FRDM-TFC-WWR3.s19
-	-@echo ' '
-
 secondary-outputs: $(SECONDARY_FLASH)
 
 .PHONY: all clean dependents explicit-dependencies warning-messages
-.SECONDARY: post-build
+.SECONDARY:
 
 -include ../makefile.targets
 
