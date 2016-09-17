@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-#Progress monitor hint: 18
+#Progress monitor hint: 19
 first : all
 -include ../makefile.init
 
@@ -68,14 +68,14 @@ all: warning-messages explicit-dependencies FRDM-TFC-WWR3.elf secondary-outputs
 # Tool invocations
 FRDM-TFC-WWR3.elf: $(OBJS) $(USER_OBJS) ../Project_Settings/Linker_Files/MKL25Z128_flash.ld
 	@echo 'Building target: $@'
-	@echo 'Executing target #19 $@'
+	@echo 'Executing target #20 $@'
 	@echo 'Invoking: ARM Ltd Windows GCC C Linker'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc"  $(USER_OBJS_QUOTED) $(LIBS_QUOTED) @"FRDM-TFC-WWR3.args" -o"FRDM-TFC-WWR3.elf"
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 FRDM-TFC-WWR3.hex: FRDM-TFC-WWR3.elf
-	@echo 'Executing target #20 $@'
+	@echo 'Executing target #21 $@'
 	@echo 'Invoking: ARM Ltd Windows GNU Create Flash Image'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-objcopy"  -O srec FRDM-TFC-WWR3.elf "FRDM-TFC-WWR3.hex"
 	@echo 'Finished building: $@'

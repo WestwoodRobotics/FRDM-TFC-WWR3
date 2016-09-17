@@ -11,6 +11,7 @@
 #include "derivative.h" /* include peripheral declarations */
 #include "TFC/TFC.h"    /* include TFC driver library */
 #include "wwr.h"        /* wwr specific headers */
+#include "pid.h"
 
 #define MAXPGM 10
 
@@ -20,6 +21,12 @@ int main(void)
 	uint16_t DEBUG = 1;
 	uint16_t go = 0;    // controls main look
 	uint16_t firstPass = 1; // controls initialization of main loop
+	
+	static double error = 0;
+	static int prev_error = 0;
+	static int old_prev_error = 0;
+	int run_line = 1;
+	double serv_dc;
 	
 	/*
 	 * Set up parameters to start on button A push or DIP 4 on/off cycle
@@ -85,7 +92,7 @@ for(;;) {
 			
 			go = 1;
 			firstPass = 1;
-			uint16_t pTimer, pNext = 0;  // timers for programmed driving in mode 2
+			uint16_t pNext = 0;  // timers for programmed driving in mode 2
 			uint16_t iCmd = 0;         // command number to load
 			uint8_t setAction = 0;  // flag to act or not
 			double dSteer, dLM, dRM = 0.0;   // set up control parameters 
@@ -197,6 +204,46 @@ for(;;) {
 	   					
 	   					break;
 	   					
+	   				case 4:
+	   					/*
+	   					 * Copied from internet see pid.c
+	   					 */
+	   					if(run_line)
+	   								{
+	   									// Get the Raw Camera Data
+	   									//read_camera(cameradata);
+	   									
+	   									// Save the previous errors
+	   									old_prev_error = prev_error;
+	   									prev_error = error;
+	   									
+	   									// Get the current error of the cars location and clip it
+	   									// to between 25 and -25
+	   									error = processCamData( LineScanImage0 );
+	   									if(error > 25)
+	   									{
+	   										error = 25;
+	   										
+	   									}
+	   									else if(error < -25)
+	   									{
+	   										error = -25;
+	   									}
+	   									
+	   									// Use PD Controller to get the new duty cycle for the servo
+	   									// P  - Error
+	   									// D  - error - 2*prev_error + old_prev_error
+	   									// Kp - 0.40
+	   									// Kd - 0.25
+	   									serv_dc = (0.40*error) + (0.25*(error - 2*prev_error + old_prev_error)) + 75;
+	   									TFC_SetServo(0,serv_dc);
+	   									
+	   									// Reset run main flag
+	   									run_line = 1;
+	   								}
+	   					
+	   					break;
+	   					
 	   				case 3:
 	   					
 	   					// sense data
@@ -209,7 +256,7 @@ for(;;) {
 	   						// find line center every 100 ms if ready
 	   						linePos = locate_line();
 	   					
-	   					//if (DEBUG) TERMINAL_PRINTF("c: %4.2f \n\r",linePos);
+	   					if (DEBUG) TERMINAL_PRINTF("c: %4.2f \n\r",linePos);
 	   					}
 	   					
 	   					break;

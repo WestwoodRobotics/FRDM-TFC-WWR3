@@ -1,7 +1,8 @@
-Sources/main.o: ../Sources/main.c \
+Sources/pid.o: ../Sources/pid.c \
  C:/Freescale/CW\ MCU\ v10.7/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix \
  C:/Freescale/CW\ MCU\ v10.7/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix \
  C:/Freescale/CW\ MCU\ v10.7/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h \
+ C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/pid.h \
  C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/derivative.h \
  C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/MKL25Z4.h \
  C:/Freescale/CW\ MCU\ v10.7/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h \
@@ -44,17 +45,15 @@ Sources/main.o: ../Sources/main.c \
  C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/TFC\TFC_LineScanCamera.h \
  C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/TFC\TFC_Queue.h \
  C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/TFC\TFC_UART.h \
- C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/TFC\TFC_Terminal.h \
- C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/wwr.h \
- C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/pid.h \
- C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/derivative.h \
- C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/TFC/TFC.h
+ C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/TFC\TFC_Terminal.h
 
 C:/Freescale/CW\ MCU\ v10.7/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
 C:/Freescale/CW\ MCU\ v10.7/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix:
 
 C:/Freescale/CW\ MCU\ v10.7/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h:
+
+C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/pid.h:
 
 C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/derivative.h:
 
@@ -141,11 +140,3 @@ C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/TFC\TFC_Queue.h:
 C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/TFC\TFC_UART.h:
 
 C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/TFC\TFC_Terminal.h:
-
-C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/wwr.h:
-
-C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/pid.h:
-
-C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/derivative.h:
-
-C:/Users/user/workspace/FRDM-TFC-WWR3/Project_Headers/TFC/TFC.h:
